@@ -23,12 +23,14 @@ int main() {
 	
 	int nivel;
 	
-	int numerodetentativas;
+
 	
 	printf("Qual o nível de dificuldade desejada?");
 	printf("[1] - Fácil  | [2] - Médio  | [3] - Difícil\n\n""");
 	printf("Digite o valor:");
 	scanf("%d", &nivel);
+	
+	int numerodetentativas;
 	
 	switch(nivel){
 		case 1:
@@ -41,8 +43,9 @@ int main() {
 	
 		default:
 		numerodetentativas = 10;
+		break;
 			
-	
+	}
 	int i = 1;
 	for(i=1; i <= numerodetentativas; i++){
  	  	printf("\n\nTentativa %d.",tentativas);
@@ -78,8 +81,11 @@ if(acertou) {
 		printf("\nFim de jogo!");
 		printf("\nVocê precisou de %d tentativas para acertar.\n", tentativas);
 		printf("Total de pontos: %.1f", pontos); //O .1 no % é referente a quantidade de casas decimais que serão apresentadas no resultado;
-		return 0;
 		}
+		else{
+			printf("\n\nVocê perdeu! Mas não desanima! Tenta de novo!");
+		}
+	return 0;	
 	}
-}
+
 		
