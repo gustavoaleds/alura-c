@@ -1,14 +1,20 @@
 #include <stdio.h>
 #include <locale.h>
-
+#include <stdlib.h>
+#include <time.h>
 int main() {
 	setlocale(LC_ALL, "");
     // imprime cabecalho do nosso jogo
     printf("\n\n******************************************\n");
     printf("* Bem-vindo ao nosso jogo de adivinhação *\n");
     printf("******************************************\n");
-
-    int numerosecreto = 42;
+    
+    int segundos = time(0);
+    srand(segundos);
+    
+    int numerogrande = rand();
+    
+    int numerosecreto = numerogrande % 100;
     int chute;
 	int tentativas = 1;
 	double pontos = 1000;
@@ -42,7 +48,7 @@ int main() {
 		tentativas++;
 		
 		double pontosperdidos = (double)(chute - numerosecreto) / (double)2;
-		pontos = pontos - pontosperdidos;
+		pontos = pontos - abs(pontosperdidos);     //Abs torna todos os números positivos, evitando bugs  na subtração de pontos;
 
 }
 		printf("\nFim de jogo!");
